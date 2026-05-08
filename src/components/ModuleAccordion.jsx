@@ -31,26 +31,28 @@ const ModuleAccordion = ({ module, index }) => {
   const exerciseCount = module.exercises.length
 
   return (
-    <div className="border border-slate-200 rounded-lg mb-3 overflow-hidden bg-white">
+    <div className="border-0 mb-4 overflow-hidden bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-50 transition-colors"
+        className="w-full px-6 py-5 flex justify-between items-center hover:bg-slate-50/80 transition-all duration-200 group"
       >
-<div className="flex items-center gap-3">
-           {iconMap[module.icon] && (() => {
-             const Icon = iconMap[module.icon]
-             return <Icon size={18} className="text-slate-500" />
-           })()}
-           <div className="text-left">
-             <h2 className="text-base font-semibold text-slate-800">{module.title}</h2>
-             <p className="text-xs text-slate-500">{module.description}</p>
-           </div>
-         </div>
-        <div className="flex items-center gap-2">
-          <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${colorMap[module.color] || colorMap.gray}`}>
+        <div className="flex items-center gap-4">
+          <div className="shrink-0 w-12 h-12 rounded-xl bg-linear-to-br from-slate-100 to-slate-50 border border-slate-200 flex items-center justify-center group-hover:shadow-sm transition-shadow">
+            {iconMap[module.icon] && (() => {
+              const Icon = iconMap[module.icon]
+              return <Icon size={20} className="text-slate-600" />
+            })()}
+          </div>
+          <div className="text-left">
+            <h2 className="text-lg font-bold text-slate-900 leading-tight">{module.title}</h2>
+            <p className="text-sm text-slate-500 mt-0.5">{module.description}</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg ${colorMap[module.color] || colorMap.gray}`}>
             {exerciseCount} ejercicios
           </span>
-          <ChevronDown className={`text-slate-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} size={18} />
+          <ChevronDown className={`text-slate-400 group-hover:text-slate-600 transition-all duration-200 ${isOpen ? 'rotate-180 text-slate-600' : ''}`} size={20} />
         </div>
       </button>
       

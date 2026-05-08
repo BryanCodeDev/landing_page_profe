@@ -2,6 +2,7 @@ export const wordModules = [
   {
     id: "formato-basico",
     title: "Formato Básico de Documentos",
+    description: "Aprende a crear documentos profesionales desde cero",
     icon: "file-text",
     color: "blue",
     exercises: [
@@ -18,7 +19,7 @@ export const wordModules = [
       },
       {
         id: "wd-02",
-        slug: "tabulaciones-e-imagenes",
+        slug: "tabulaciones-imagenes",
         title: "Tabulaciones e Inserción de Imágenes",
         description: "Domina el uso de tabulaciones para crear tablas de contenido, y aprende a insertar y ajustar imágenes en tus documentos.",
         skills: ["Tabulaciones", "Insertar imágenes", "Ajuste de texto"],
@@ -41,8 +42,40 @@ export const wordModules = [
     ]
   },
   {
+    id: "tablas-word",
+    title: "Tablas en Word",
+    description: "Creación y formato de tablas de datos",
+    icon: "bar-chart-3",
+    color: "emerald",
+    exercises: [
+      {
+        id: "tw-01",
+        slug: "ejercicios-tablas-basicas",
+        title: "Ejercicios de Tablas Básicas",
+        description: "Aprende a crear, formatear y personalizar tablas en Word. Incluye ejercicios prácticos con datos de productos y cálculos simples.",
+        skills: ["Crear tablas", "Formato de celdas", "Bordes y sombreado"],
+        level: "Principiante",
+        fileUrl: "/archivos/word/Tablas Word/EjWorBas-Pra7.doc",
+        fileName: "Tablas-Basicas-Practica-Servysol.doc",
+        fileSize: "21 KB"
+      },
+      {
+        id: "tw-02",
+        slug: "ejercicios-tablas-repaso",
+        title: "Repaso de Tablas en Word",
+        description: "Ejercicios de repaso para reforzar el manejo de tablas, incluyendo combinación de celdas, fórmulas básicas y formato profesional.",
+        skills: ["Combinar celdas", "Fórmulas en tablas", "Diseño profesional"],
+        level: "Principiante",
+        fileUrl: "/archivos/word/Tablas Word/EjWorBas-Rep7.doc",
+        fileName: "Tablas-Repaso-Servysol.doc",
+        fileSize: "33 KB"
+      }
+    ]
+  },
+  {
     id: "examen-final",
     title: "Evaluación Final",
+    description: "Aplica todos los conocimientos adquiridos",
     icon: "award",
     color: "pink",
     exercises: [

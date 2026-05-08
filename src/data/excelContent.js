@@ -49,6 +49,17 @@ export const excelModules = [
         fileUrl: "/archivos/excel/ventas1.xls",
         fileName: "Ventas-Servysol.xls",
         fileSize: "30 KB"
+      },
+      {
+        id: "fb-05",
+        slug: "taller-excel-basico",
+        title: "Taller Excel Básico",
+        description: "Taller completo de repaso sobre fórmulas y funciones básicas de Excel.",
+        skills: ["Fórmulas básicas", "Operadores", "Funciones simples"],
+        level: "Principiante",
+        fileUrl: "/archivos/excel/taller_excel_b__sico.xls",
+        fileName: "Taller-Excel-Basico-Servysol.xls",
+        fileSize: "42 KB"
       }
     ]
   },
@@ -86,7 +97,7 @@ export const excelModules = [
         description: "Aprende las funciones más usadas: SUMA, PROMEDIO, MAX, MIN, CONTAR aplicadas a datos de empleados.",
         skills: ["SUMA", "PROMEDIO", "MAX / MIN", "CONTAR"],
         level: "Principiante",
-        fileUrl: "/archivos/excel/Formulas básicas.xls",
+        fileUrl: "/archivos/excel/Formulas b�sicas.xls",
         fileName: "Funciones-Basicas-Servysol.xls",
         fileSize: "26 KB"
       },
@@ -221,8 +232,8 @@ export const excelModules = [
         description: "Aprende la sintaxis completa de BUSCARV: valor_buscado, matriz_tabla, indicador_columnas, ordenado.",
         skills: ["Sintaxis BUSCARV", "Búsqueda exacta", "Búsqueda aproximada"],
         level: "Intermedio",
-        fileUrl: "/archivos/excel/BuscarV1.xls",
-        fileName: "BUSCARV-Servysol.xls",
+        fileUrl: "/archivos/excel/BuscarV/BuscarV1.xls",
+        fileName: "BUSCARV-1-Servysol.xls",
         fileSize: "18 KB"
       },
       {
@@ -249,14 +260,14 @@ export const excelModules = [
       },
       {
         id: "bv-04",
-        slug: "indice-coincidir",
-        title: "Índice y Coincidir",
-        description: "Domina ÍNDICE y COINCIDIR como alternativa a BUSCARV.",
-        skills: ["ÍNDICE", "COINCIDIR", "Alternativas a BUSCARV"],
+        slug: "buscarv-avanzado",
+        title: "BUSCARV - Ejercicio Avanzado",
+        description: "Práctica avanzada con búsquedas verticales en bases de datos complejas.",
+        skills: ["BUSCARV combinado", "Búsquedas complejas", "Validación de datos"],
         level: "Avanzado",
-        fileUrl: "/archivos/excel/BuscarV/IndiceyCoincidir.xlsx",
-        fileName: "Indice-Coincidir-Servysol.xlsx",
-        fileSize: "17 KB"
+        fileUrl: "/archivos/excel/BuscarV/EjBuscarV,BH y combi.xls",
+        fileName: "BUSCARV-Avanzado-Servysol.xls",
+        fileSize: "76 KB"
       }
     ]
   },
@@ -316,7 +327,7 @@ export const excelModules = [
         description: "Aprende a crear y configurar tablas dinámicas con diferentes configuraciones.",
         skills: ["Crear tabla dinámica", "Campos de fila/columna", "Filtros"],
         level: "Intermedio",
-        fileUrl: "/archivos/excel/Tablas Dinamicas/3 EJEMPLOS DE TABLAS DINÁMICAS.xlsx",
+        fileUrl: "/archivos/excel/Tablas Dinamicas/3 EJEMPLOS DE TABLAS DIN�MICAS.xlsx",
         fileName: "Ejemplos-Tablas-Dinamicas-Servysol.xlsx",
         fileSize: "35 KB"
       },

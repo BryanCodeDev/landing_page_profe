@@ -16,7 +16,7 @@ const NotFound = () => {
         <title>404 - Página no encontrada | SERVYSOL</title>
         <meta name="description" content="Página no encontrada. Explora nuestros ejercicios de Excel, Word y Windows." />
       </Helmet>
-      <div className="min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-gray-50 to-white px-4">
+       <div className="min-h-[70vh] flex items-center justify-center bg-linear-to-b from-gray-50 to-white px-4">
         <div className="max-w-2xl w-full text-center">
           {/* Ilustración 404 */}
           <div className="mb-8">
