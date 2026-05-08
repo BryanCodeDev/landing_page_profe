@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { BarChart3, FileText, Monitor } from 'lucide-react'
+import { BarChart3, FileText, Monitor, Download, CheckCircle, ArrowRight } from 'lucide-react'
 
 const Home = () => {
   return (
@@ -24,61 +24,163 @@ const Home = () => {
           })}
         </script>
       </Helmet>
-      
-      <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-500 rounded-full blur-3xl"></div>
+
+      <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
+
+        {/* Blobs decorativos mejorados */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-10 left-0 w-96 h-96 bg-blue-600 rounded-full blur-[120px] opacity-20"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-600 rounded-full blur-[140px] opacity-15"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500 rounded-full blur-[100px] opacity-10"></div>
         </div>
-        
-        <div className="container mx-auto px-4 py-16 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-300 border border-blue-500/30 px-4 py-1.5 rounded-full">
-                Plataforma Educativa Gratuita
-              </span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-              <span className="bg-linear-to-r from-white via-blue-100 to-slate-200 bg-clip-text text-transparent">
+
+        <div className="container mx-auto px-4 py-20 relative z-10">
+
+          {/* Badge */}
+          <div className="flex justify-center mb-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-300 border border-blue-500/30 bg-blue-500/10 px-5 py-2 rounded-full backdrop-blur-sm">
+              📚 Plataforma Educativa Gratuita
+            </span>
+          </div>
+
+          {/* Título */}
+          <div className="text-center mb-4">
+            <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight">
+              <span className="bg-linear-to-r from-white via-blue-100 to-slate-300 bg-clip-text text-transparent">
                 Servysol
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-              Aprende Microsoft Word y Excel con ejercicios prácticos descargables. 
-              Sin registro, sin redirecciones. Descarga directa de archivos .xlsx y .docx.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-            <Link to="/excel" className="group bg-linear-to-br from-emerald-500 to-emerald-700 text-white p-8 rounded-2xl hover:from-emerald-600 hover:to-emerald-800 transition-all duration-300 text-center hover:shadow-2xl hover:-translate-y-1 border border-emerald-400/20">
-              <div className="flex justify-center mb-4">
-                <BarChart3 size={40} className="group-hover:scale-110 transition-transform" />
-              </div>
-              <h2 className="text-2xl font-bold mb-2">Excel</h2>
-              <p className="text-sm opacity-90 font-medium">28 ejercicios en 11 módulos</p>
-            </Link>
-            <Link to="/word" className="group bg-linear-to-br from-blue-500 to-blue-700 text-white p-8 rounded-2xl hover:from-blue-600 hover:to-blue-800 transition-all duration-300 text-center hover:shadow-2xl hover:-translate-y-1 border border-blue-400/20">
-              <div className="flex justify-center mb-4">
-                <FileText size={40} className="group-hover:scale-110 transition-transform" />
-              </div>
-              <h2 className="text-2xl font-bold mb-2">Word</h2>
-              <p className="text-sm opacity-90 font-medium">4 ejercicios en 2 módulos</p>
-            </Link>
-            <Link to="/windows" className="group bg-linear-to-br from-amber-500 to-amber-700 text-white p-8 rounded-2xl hover:from-amber-600 hover:to-amber-800 transition-all duration-300 text-center hover:shadow-2xl hover:-translate-y-1 border border-amber-400/20">
-              <div className="flex justify-center mb-4">
-                <Monitor size={40} className="group-hover:scale-110 transition-transform" />
-              </div>
-              <h2 className="text-2xl font-bold mb-2">Windows</h2>
-              <p className="text-sm opacity-90 font-medium">Próximamente</p>
-            </Link>
+          {/* Subtítulo */}
+          <p className="text-center text-lg md:text-xl text-slate-400 mb-4 max-w-xl mx-auto leading-relaxed font-light">
+            Practica Microsoft Word y Excel con ejercicios reales y descargables.
+            Sin registro, sin redirecciones.
+          </p>
+
+          {/* Pills de características */}
+          <div className="flex flex-wrap justify-center gap-2 mb-14">
+            {[
+              { icon: <Download size={13} />, text: 'Descarga directa .xlsx y .docx' },
+              { icon: <CheckCircle size={13} />, text: 'Sin registro requerido' },
+              { icon: <ArrowRight size={13} />, text: '32 archivos disponibles' },
+            ].map((item, i) => (
+              <span key={i} className="flex items-center gap-1.5 text-xs text-slate-300 bg-slate-800/60 border border-slate-700/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                <span className="text-blue-400">{item.icon}</span>
+                {item.text}
+              </span>
+            ))}
           </div>
 
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 text-center py-4 px-8 rounded-full inline-block mx-auto">
-            <span className="text-sm text-slate-300 font-medium">
-              28 Archivos Excel · 4 Archivos Word · Descarga Directa · Sin Registro
-            </span>
+          {/* Tarjetas de cursos */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto mb-16">
+
+            {/* Excel */}
+            <Link
+              to="/excel"
+              className="group relative bg-linear-to-br from-emerald-500/90 to-emerald-700/90 backdrop-blur-sm text-white p-7 rounded-2xl hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 border border-emerald-400/20 hover:border-emerald-300/40 hover:shadow-[0_0_40px_rgba(16,185,129,0.25)] hover:-translate-y-1 overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+              <div className="flex items-start justify-between mb-4">
+                <div className="bg-white/15 p-3 rounded-xl group-hover:bg-white/20 transition-colors">
+                  <BarChart3 size={26} />
+                </div>
+                <span className="text-[11px] font-semibold bg-emerald-900/50 text-emerald-200 px-2.5 py-1 rounded-full border border-emerald-500/30">
+                  11 módulos
+                </span>
+              </div>
+              <h2 className="text-xl font-bold mb-1">Excel</h2>
+              <p className="text-sm text-emerald-100/80 mb-4 leading-relaxed">
+                BUSCARV, SUMAR.SI, tablas dinámicas, gráficos y más.
+              </p>
+              <ul className="text-xs text-emerald-100/70 space-y-1 mb-5">
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Fórmulas y funciones</li>
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Tablas dinámicas</li>
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Funciones de búsqueda</li>
+              </ul>
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-emerald-100">
+                  28 ejercicios
+                </span>
+                <span className="flex items-center gap-1 text-xs text-emerald-200 group-hover:gap-2 transition-all">
+                  Ver módulos <ArrowRight size={13} />
+                </span>
+              </div>
+            </Link>
+
+            {/* Word */}
+            <Link
+              to="/word"
+              className="group relative bg-linear-to-br from-blue-500/90 to-blue-700/90 backdrop-blur-sm text-white p-7 rounded-2xl hover:from-blue-500 hover:to-blue-600 transition-all duration-300 border border-blue-400/20 hover:border-blue-300/40 hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] hover:-translate-y-1 overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+              <div className="flex items-start justify-between mb-4">
+                <div className="bg-white/15 p-3 rounded-xl group-hover:bg-white/20 transition-colors">
+                  <FileText size={26} />
+                </div>
+                <span className="text-[11px] font-semibold bg-blue-900/50 text-blue-200 px-2.5 py-1 rounded-full border border-blue-500/30">
+                  2 módulos
+                </span>
+              </div>
+              <h2 className="text-xl font-bold mb-1">Word</h2>
+              <p className="text-sm text-blue-100/80 mb-4 leading-relaxed">
+                Documentos profesionales, estilos, tablas e índices automáticos.
+              </p>
+              <ul className="text-xs text-blue-100/70 space-y-1 mb-5">
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Formato y estilos</li>
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Tablas y listas</li>
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Índice automático</li>
+              </ul>
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-blue-100">
+                  4 ejercicios
+                </span>
+                <span className="flex items-center gap-1 text-xs text-blue-200 group-hover:gap-2 transition-all">
+                  Ver módulos <ArrowRight size={13} />
+                </span>
+              </div>
+            </Link>
+
+            {/* Windows */}
+            <div className="group relative bg-linear-to-br from-amber-500/60 to-amber-700/60 backdrop-blur-sm text-white p-7 rounded-2xl border border-amber-400/10 overflow-hidden opacity-70 cursor-default">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+              <div className="flex items-start justify-between mb-4">
+                <div className="bg-white/10 p-3 rounded-xl">
+                  <Monitor size={26} />
+                </div>
+                <span className="text-[11px] font-semibold bg-amber-900/50 text-amber-200 px-2.5 py-1 rounded-full border border-amber-500/30">
+                  Próximamente
+                </span>
+              </div>
+              <h2 className="text-xl font-bold mb-1">Windows</h2>
+              <p className="text-sm text-amber-100/70 mb-4 leading-relaxed">
+                Organización, configuración y productividad en el sistema operativo.
+              </p>
+              <ul className="text-xs text-amber-100/50 space-y-1 mb-5">
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Explorador de archivos</li>
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Atajos de teclado</li>
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Configuración del sistema</li>
+              </ul>
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-amber-200/60">En desarrollo</span>
+              </div>
+            </div>
+
           </div>
+
+          {/* Footer strip */}
+          <div className="flex justify-center">
+            <div className="flex flex-wrap items-center gap-3 bg-slate-800/50 backdrop-blur-sm border border-slate-700/60 text-slate-400 text-xs px-6 py-3 rounded-full">
+              <span className="flex items-center gap-1.5"><BarChart3 size={12} className="text-emerald-400" /> 28 archivos Excel</span>
+              <span className="text-slate-600">·</span>
+              <span className="flex items-center gap-1.5"><FileText size={12} className="text-blue-400" /> 4 archivos Word</span>
+              <span className="text-slate-600">·</span>
+              <span className="flex items-center gap-1.5"><Download size={12} className="text-slate-400" /> Descarga directa</span>
+              <span className="text-slate-600">·</span>
+              <span className="flex items-center gap-1.5"><CheckCircle size={12} className="text-slate-400" /> Sin registro</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </>
