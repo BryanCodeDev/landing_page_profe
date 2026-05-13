@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { BarChart3, FileText, Monitor, Download, CheckCircle, ArrowRight } from 'lucide-react'
+import { BookOpen, BarChart3, FileText, Monitor, Download, CheckCircle, ArrowRight } from 'lucide-react'
 import { windowsShortcuts } from '../data/windowsContent'
 
 const Home = () => {
@@ -39,9 +39,10 @@ const Home = () => {
         <div className="container mx-auto px-4 py-20 relative z-10">
 
           <div className="flex justify-center mb-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-300 border border-blue-500/30 bg-blue-500/10 px-5 py-2 rounded-full backdrop-blur-sm">
-              📚 Plataforma Educativa Gratuita
-            </span>
+<span className="text-xs font-bold uppercase tracking-widest text-blue-300 border border-blue-500/30 bg-blue-500/10 px-5 py-2 rounded-full backdrop-blur-sm flex items-center gap-1.5">
+               <BookOpen size={13} />
+               Plataforma Educativa Gratuita
+             </span>
           </div>
 
           <div className="text-center mb-4">

@@ -97,7 +97,7 @@ const ExercisePageLayout = ({
                     placeholder="Buscar por nombre de archivo, habilidad o descripción..."
                     aria-label="Buscar ejercicios"
                     className="
-                      w-full pl-11 pr-10 py-3 text-sm text-slate-800
+                      w-full pl-11 pr-10 py-3 text-sm text-white
                       bg-white/10 border border-white/20 rounded-xl
                       placeholder:text-slate-300 placeholder:font-light
                       focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/40

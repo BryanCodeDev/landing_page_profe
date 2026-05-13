@@ -7,7 +7,7 @@ const levelConfig = {
 }
 
 const ExerciseCard = ({ exercise }) => {
-  const isWord   = exercise.fileName?.endsWith('.docx')
+  const isWord   = ['.docx', '.doc'].some(ext => exercise.fileName?.toLowerCase().endsWith(ext))
   const accent   = isWord ? 'blue' : 'emerald'
   const FileIcon = isWord ? FileText : FileSpreadsheet
   const level    = levelConfig[exercise.level] || levelConfig["Principiante"]
@@ -22,9 +22,8 @@ const ExerciseCard = ({ exercise }) => {
 
         {/* Icono lateral */}
         <div className={`
-          shrink-0 w-11 h-11 rounded-xl flex items-center justify-center
-          bg-${accent}-50 border border-${accent}-100
-          group-hover:bg-${accent}-100 transition-colors
+shrink-0 w-11 h-11 rounded-xl flex items-center justify-center
+           bg-${accent}-100 group-hover:bg-${accent}-50 transition-colors
         `}>
           <FileIcon size={20} className={`text-${accent}-600`} />
         </div>

@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Monitor, Clock, BookOpen, ArrowRight } from 'lucide-react'
+import { Monitor, Clock, BookOpen, ArrowRight, Zap } from 'lucide-react'
 import { windowsShortcuts } from '../data/windowsContent'
 import WindowsAccordion from '../components/WindowsAccordion'
 
@@ -65,9 +65,10 @@ const WindowsPage = () => {
             <WindowsAccordion sections={windowsShortcuts} />
 
             <div className="mt-8 text-center">
-              <p className="text-xs text-slate-400">
-                💡 Consejo: Usa <kbd className="px-1.5 py-0.5 bg-slate-100 border border-slate-200 rounded text-[10px] font-bold text-slate-600">Win</kbd>
-                como tu tecla principal para acceder rápidamente a cualquier cosa.
+              <p className="text-xs text-slate-400 flex items-center justify-center gap-1.5">
+                <Zap size={11} className="text-amber-400" />
+                Consejo: Usa <kbd className="px-1.5 py-0.5 bg-slate-100 border border-slate-200 rounded text-[10px] font-bold text-slate-600">Win</kbd>
+                como tu tecla principal para acceder r&aacute;pidamente a cualquier cosa.
               </p>
             </div>
           </div>
