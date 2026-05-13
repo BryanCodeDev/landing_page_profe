@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { BarChart3, FileText, Monitor, Download, CheckCircle, ArrowRight } from 'lucide-react'
+import { windowsShortcuts } from '../data/windowsContent'
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": "Ejercicios de Ofimática",
-              "numberOfItems": 32
+              "numberOfItems": 42
             }
           })}
         </script>
@@ -54,7 +55,7 @@ const Home = () => {
 
           {/* Subtítulo */}
           <p className="text-center text-lg md:text-xl text-slate-400 mb-4 max-w-xl mx-auto leading-relaxed font-light">
-            Practica Microsoft Word y Excel con ejercicios reales y descargables.
+            Practica Microsoft Word, Excel y Windows con ejercicios reales y descargables.
             Sin registro, sin redirecciones.
           </p>
 
@@ -63,7 +64,7 @@ const Home = () => {
             {[
               { icon: <Download size={13} />, text: 'Descarga directa .xlsx y .docx' },
               { icon: <CheckCircle size={13} />, text: 'Sin registro requerido' },
-              { icon: <ArrowRight size={13} />, text: '32 archivos disponibles' },
+              { icon: <ArrowRight size={13} />, text: '42 recursos disponibles' },
             ].map((item, i) => (
               <span key={i} className="flex items-center gap-1.5 text-xs text-slate-300 bg-slate-800/60 border border-slate-700/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
                 <span className="text-blue-400">{item.icon}</span>
@@ -119,7 +120,7 @@ const Home = () => {
                   <FileText size={26} />
                 </div>
                 <span className="text-[11px] font-semibold bg-blue-900/50 text-blue-200 px-2.5 py-1 rounded-full border border-blue-500/30">
-                  2 módulos
+                  4 módulos
                 </span>
               </div>
               <h2 className="text-xl font-bold mb-1">Word</h2>
@@ -142,29 +143,37 @@ const Home = () => {
             </Link>
 
             {/* Windows */}
-            <div className="group relative bg-linear-to-br from-amber-500/60 to-amber-700/60 backdrop-blur-sm text-white p-7 rounded-2xl border border-amber-400/10 overflow-hidden opacity-70 cursor-default">
+            <Link
+              to="/windows"
+              className="group relative bg-linear-to-br from-amber-500/90 to-amber-700/90 backdrop-blur-sm text-white p-7 rounded-2xl hover:from-amber-500 hover:to-amber-600 transition-all duration-300 border border-amber-400/20 hover:border-amber-300/40 hover:shadow-[0_0_40px_rgba(245,158,11,0.25)] hover:-translate-y-1 overflow-hidden"
+            >
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
               <div className="flex items-start justify-between mb-4">
-                <div className="bg-white/10 p-3 rounded-xl">
+                <div className="bg-white/15 p-3 rounded-xl group-hover:bg-white/20 transition-colors">
                   <Monitor size={26} />
                 </div>
                 <span className="text-[11px] font-semibold bg-amber-900/50 text-amber-200 px-2.5 py-1 rounded-full border border-amber-500/30">
-                  Próximamente
+                  8 categorías
                 </span>
               </div>
               <h2 className="text-xl font-bold mb-1">Windows</h2>
-              <p className="text-sm text-amber-100/70 mb-4 leading-relaxed">
-                Organización, configuración y productividad en el sistema operativo.
+              <p className="text-sm text-amber-100/80 mb-4 leading-relaxed">
+                Atajos de teclado organizados por categoría. Puro texto, sin archivos.
               </p>
-              <ul className="text-xs text-amber-100/50 space-y-1 mb-5">
-                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Explorador de archivos</li>
-                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Atajos de teclado</li>
-                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Configuración del sistema</li>
+              <ul className="text-xs text-amber-100/70 space-y-1 mb-5">
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Navegación y archivos</li>
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Gestión de ventanas</li>
+                <li className="flex items-center gap-1.5"><CheckCircle size={11} /> Accesibilidad</li>
               </ul>
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-amber-200/60">En desarrollo</span>
+                <span className="text-sm font-semibold text-amber-100">
+                  {windowsShortcuts ? windowsShortcuts.reduce((acc, s) => acc + s.shortcuts.length, 0) : 0} atajos
+                </span>
+                <span className="flex items-center gap-1 text-xs text-amber-200 group-hover:gap-2 transition-all">
+                  Ver guía <ArrowRight size={13} />
+                </span>
               </div>
-            </div>
+            </Link>
 
           </div>
 
@@ -174,6 +183,8 @@ const Home = () => {
               <span className="flex items-center gap-1.5"><BarChart3 size={12} className="text-emerald-400" /> 28 archivos Excel</span>
               <span className="text-slate-600">·</span>
               <span className="flex items-center gap-1.5"><FileText size={12} className="text-blue-400" /> 4 archivos Word</span>
+              <span className="text-slate-600">·</span>
+              <span className="flex items-center gap-1.5"><Monitor size={12} className="text-amber-400" /> 50+ atajos Windows</span>
               <span className="text-slate-600">·</span>
               <span className="flex items-center gap-1.5"><Download size={12} className="text-slate-400" /> Descarga directa</span>
               <span className="text-slate-600">·</span>

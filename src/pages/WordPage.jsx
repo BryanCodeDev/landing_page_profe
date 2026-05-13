@@ -1,9 +1,10 @@
 import { Helmet } from 'react-helmet-async'
 import { FileText, Download, BookOpen, Layers, Search, X } from 'lucide-react'
 import { wordModules } from '../data/wordContent'
-import SearchBar from '../components/SearchBar'
+import ModuleAccordion from '../components/ModuleAccordion'
 import ExerciseCard from '../components/ExerciseCard'
 import useFileSearch from '../hooks/useFileSearch'
+import { useState } from 'react'
 
 const WordPage = () => {
   const { query, setQuery, results: flatResults } = useFileSearch(
@@ -11,9 +12,15 @@ const WordPage = () => {
     ['title', 'description', 'skills', 'fileName', 'fileUrl']
   )
 
+  const [inputQuery, setInputQuery] = useState(query)
   const totalExercises = wordModules.reduce((acc, m) => acc + m.exercises.length, 0)
   const isSearching = query.trim().length > 0
   const hasResults = flatResults && flatResults.length > 0
+
+  const handleSearch = (value) => {
+    setInputQuery(value)
+    setQuery(value)
+  }
 
   return (
     <>
@@ -79,8 +86,8 @@ const WordPage = () => {
                   />
                   <input
                     type="text"
-                    value={query}
-                    onChange={e => setQuery(e.target.value)}
+                    value={inputQuery}
+                    onChange={e => handleSearch(e.target.value)}
                     placeholder="Buscar por nombre de archivo, habilidad o descripción..."
                     aria-label="Buscar ejercicios de Word"
                     className="
@@ -91,9 +98,9 @@ const WordPage = () => {
                       transition-all duration-200 backdrop-blur-sm
                     "
                   />
-                  {query && (
+                  {inputQuery && (
                     <button
-                      onClick={() => setQuery('')}
+                      onClick={() => { setInputQuery(''); setQuery('') }}
                       aria-label="Limpiar búsqueda"
                       className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
                     >
@@ -111,18 +118,23 @@ const WordPage = () => {
           {isSearching ? (
             <>
               {hasResults ? (
-                <div className="space-y-3">
-                  {flatResults.map((exercise, index) => (
-                    <div key={exercise.id} className="flex items-start gap-3">
-                      <span className="shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold flex items-center justify-center mt-1">
-                        {index + 1}
-                      </span>
-                      <div className="flex-1">
-                        <ExerciseCard exercise={exercise} />
+                <>
+                  <div className="mb-4 text-sm text-slate-500">
+                    {flatResults.length} resultado(s) encontrados
+                  </div>
+                  <div className="space-y-3">
+                    {flatResults.map((exercise, index) => (
+                      <div key={exercise.id} className="flex items-start gap-3">
+                        <span className="shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold flex items-center justify-center mt-1">
+                          {index + 1}
+                        </span>
+                        <div className="flex-1">
+                          <ExerciseCard exercise={exercise} />
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                </>
               ) : (
                 <div className="text-center py-16">
                   <div className="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-4">
@@ -130,32 +142,19 @@ const WordPage = () => {
                   </div>
                   <p className="text-slate-600 font-semibold mb-1">Sin resultados</p>
                   <p className="text-sm text-slate-400">No hay archivos que coincidan con <span className="font-medium">"{query}"</span></p>
+                  <button
+                    onClick={() => { setInputQuery(''); setQuery('') }}
+                    className="mt-4 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-colors"
+                  >
+                    Ver todos los módulos
+                  </button>
                 </div>
               )}
-              <div className="mt-6 text-center">
-                <p className="text-xs text-slate-400">
-                  Mostrando archivos individuales que coinciden con tu búsqueda.
-                </p>
-              </div>
             </>
           ) : (
             <div className="space-y-3">
               {wordModules.map((module, index) => (
-                <div key={module.id}>
-                  <button
-                    onClick={() => {}}
-                    className="w-full px-5 py-3 flex justify-between items-center hover:bg-slate-50/70 transition-colors duration-200 group rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 mb-1"
-                  >
-                    <div className="flex items-center gap-4">
-                      <span className="shrink-0 w-6 h-6 rounded-full bg-slate-100 text-slate-400 text-xs font-bold flex items-center justify-center">
-                        {index + 1}
-                      </span>
-                      <h2 className="text-sm font-bold text-slate-900">{module.title}</h2>
-                      <span className="text-[11px] text-slate-400">({module.exercises.length} archivos)</span>
-                    </div>
-                    <p className="text-xs text-slate-400 max-w-md truncate">{module.description}</p>
-                  </button>
-                </div>
+                <ModuleAccordion key={module.id} module={module} index={index} />
               ))}
               <p className="text-center text-sm text-slate-400 mt-4">
                 ↑ Escribe arriba para buscar archivos individuales en tiempo real

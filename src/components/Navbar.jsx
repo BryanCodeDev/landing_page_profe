@@ -1,10 +1,11 @@
-import { Link, NavLink } from 'react-router-dom'
-import { FileSpreadsheet, FileText, BookOpen, Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import { FileSpreadsheet, FileText, Monitor, BookOpen, Menu, X } from 'lucide-react'
 
 const navItems = [
   { path: '/excel', label: 'Excel', icon: FileSpreadsheet, color: 'text-emerald-600', activeBg: 'bg-linear-to-br from-emerald-50 to-emerald-100 text-emerald-700 border-emerald-200' },
   { path: '/word',  label: 'Word',  icon: FileText,        color: 'text-blue-600',    activeBg: 'bg-linear-to-br from-blue-50 to-blue-100 text-blue-700 border-blue-200' },
+  { path: '/windows', label: 'Windows', icon: Monitor,     color: 'text-amber-600',  activeBg: 'bg-linear-to-br from-amber-50 to-amber-100 text-amber-700 border-amber-200' },
 ]
 
 const Navbar = () => {
