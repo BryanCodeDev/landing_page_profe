@@ -8,8 +8,7 @@ const ExcelPage = () => (
     heroTitle="Ejercicios de Excel"
     heroSubtitle="Microsoft Excel"
     heroIcon={BarChart3}
-    heroGradientFrom="emerald-600"
-    heroGradientTo="emerald-800"
+    heroGradient="linear-gradient(to bottom right, #059669, #065f46)"
     helmetTitle="Ejercicios de Excel para Descargar | BUSCARV, SUMAR.SI, Fórmulas - Servysol"
     helmetDescription="28 ejercicios de Excel listos para descargar: fórmulas básicas, BUSCARV, SUMAR.SI, filtros, función SI y más. Archivos .xlsx con casos reales."
     statsModuleLabel="módulos"

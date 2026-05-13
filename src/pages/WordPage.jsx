@@ -8,8 +8,7 @@ const WordPage = () => (
     heroTitle="Ejercicios de Word"
     heroSubtitle="Microsoft Word"
     heroIcon={FileText}
-    heroGradientFrom="blue-600"
-    heroGradientTo="blue-800"
+    heroGradient="linear-gradient(to bottom right, #2563eb, #1e40af)"
     helmetTitle="Ejercicios de Word para Descargar | Formato, Imágenes, SmartArt - Servysol"
     helmetDescription="6 ejercicios prácticos de Microsoft Word en .docx y .doc: formato básico, tabulaciones, SmartArt, tablas e índices. Descarga y practica en tu computador."
     statsModuleLabel="módulos"

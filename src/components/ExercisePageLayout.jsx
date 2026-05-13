@@ -9,8 +9,7 @@ const ExercisePageLayout = ({
   heroTitle,
   heroSubtitle,
   heroIcon: HeroIcon,
-  heroGradientFrom,
-  heroGradientTo,
+  heroGradient,
   helmetTitle,
   helmetDescription,
   statsModuleLabel,
@@ -40,9 +39,9 @@ const ExercisePageLayout = ({
         <meta property="og:description" content={helmetDescription} />
       </Helmet>
 
-      <div className="min-h-screen bg-linear-to-b from-slate-50 via-white to-slate-50">
+      <div className="min-h-screen bg-slate-50">
 
-        <div className={`bg-linear-to-br from-${heroGradientFrom} to-${heroGradientTo} text-white`}>
+        <div className="relative" style={{ background: heroGradient }}>
           <div className="container mx-auto px-4 py-10">
             <div className="max-w-3xl">
               <div className="flex items-center gap-2 mb-4">
@@ -54,10 +53,10 @@ const ExercisePageLayout = ({
               </div>
               <div className="flex items-start gap-4 mb-4">
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center">
-                  <HeroIcon size={24} />
+                  <HeroIcon size={24} className="text-white" />
                 </div>
                 <div>
-                  <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
+                  <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-white">
                     {heroTitle}
                   </h1>
                   <p className="text-white/80 mt-1 text-sm md:text-base">
@@ -74,10 +73,10 @@ const ExercisePageLayout = ({
                 <div className="flex flex-wrap gap-4 mt-6">
                   {[
                     { icon: <HeroIcon size={14} />, text: `${modules.length} ${statsModuleLabel}` },
-                    { icon: <Search size={14} />, text: `${totalExercises} ${totalLabel}` },
+                    { icon: <Search size={14} className="text-white" />, text: `${totalExercises} ${totalLabel}` },
                   ].map((s, i) => (
                     <div key={i} className="flex items-center gap-1.5 text-xs font-medium text-white/80 bg-white/10 border border-white/20 px-3 py-1.5 rounded-full">
-                      <span>{s.icon}</span>
+                      <span className="text-white">{s.icon}</span>
                       {s.text}
                     </div>
                   ))}
