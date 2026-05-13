@@ -97,7 +97,7 @@ export const excelModules = [
         description: "Aprende las funciones más usadas: SUMA, PROMEDIO, MAX, MIN, CONTAR aplicadas a datos de empleados.",
         skills: ["SUMA", "PROMEDIO", "MAX / MIN", "CONTAR"],
         level: "Principiante",
-        fileUrl: "/archivos/excel/Formulas b�sicas.xls",
+        fileUrl: "/archivos/excel/Formulas básicas.xls",
         fileName: "Funciones-Basicas-Servysol.xls",
         fileSize: "26 KB"
       },
@@ -327,7 +327,7 @@ export const excelModules = [
         description: "Aprende a crear y configurar tablas dinámicas con diferentes configuraciones.",
         skills: ["Crear tabla dinámica", "Campos de fila/columna", "Filtros"],
         level: "Intermedio",
-        fileUrl: "/archivos/excel/Tablas Dinamicas/3 EJEMPLOS DE TABLAS DIN�MICAS.xlsx",
+        fileUrl: "/archivos/excel/Tablas Dinámicas/3 EJEMPLOS DE TABLAS DINÁMICAS.xlsx",
         fileName: "Ejemplos-Tablas-Dinamicas-Servysol.xlsx",
         fileSize: "35 KB"
       },
@@ -338,7 +338,7 @@ export const excelModules = [
         description: "Ejercicio completo con base de datos de ventas y múltiples configuraciones.",
         skills: ["Tablas dinámicas", "Grupos", "Cálculos personalizados"],
         level: "Intermedio",
-        fileUrl: "/archivos/excel/Tablas Dinamicas/Taller Tabla dinamicas.xls",
+        fileUrl: "/archivos/excel/Tablas Dinámicas/Taller Tabla dinámica.xls",
         fileName: "Taller-Tablas-Dinamicas-Servysol.xls",
         fileSize: "57 KB"
       }

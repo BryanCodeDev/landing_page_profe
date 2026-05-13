@@ -16,26 +16,27 @@ const iconMap = {
 }
 
 const colorMap = {
-  green:  { icon: "bg-green-50 border-green-200 text-green-700",   badge: "bg-green-100 text-green-700 border border-green-200"  },
-  blue:   { icon: "bg-blue-50 border-blue-200 text-blue-700",      badge: "bg-blue-100 text-blue-700 border border-blue-200"    },
-  teal:   { icon: "bg-teal-50 border-teal-200 text-teal-700",      badge: "bg-teal-100 text-teal-700 border border-teal-200"    },
-  amber:  { icon: "bg-amber-50 border-amber-200 text-amber-700",   badge: "bg-amber-100 text-amber-700 border border-amber-200" },
-  purple: { icon: "bg-purple-50 border-purple-200 text-purple-700",badge: "bg-purple-100 text-purple-700 border border-purple-200"},
-  coral:  { icon: "bg-rose-50 border-rose-200 text-rose-700",      badge: "bg-rose-100 text-rose-700 border border-rose-200"    },
-  pink:   { icon: "bg-pink-50 border-pink-200 text-pink-700",      badge: "bg-pink-100 text-pink-700 border border-pink-200"    },
-  gray:   { icon: "bg-slate-50 border-slate-200 text-slate-600",   badge: "bg-slate-100 text-slate-600 border border-slate-200" },
+  green:  { icon: "bg-emerald-50 border-emerald-200 text-emerald-600",  badge: "bg-emerald-50 text-emerald-700 border border-emerald-200"  },
+  blue:   { icon: "bg-blue-50 border-blue-200 text-blue-600",           badge: "bg-blue-50 text-blue-700 border border-blue-200"           },
+  teal:   { icon: "bg-teal-50 border-teal-200 text-teal-600",           badge: "bg-teal-50 text-teal-700 border border-teal-200"           },
+  amber:  { icon: "bg-amber-50 border-amber-200 text-amber-600",        badge: "bg-amber-50 text-amber-700 border border-amber-200"        },
+  purple: { icon: "bg-purple-50 border-purple-200 text-purple-600",     badge: "bg-purple-50 text-purple-700 border border-purple-200"     },
+  coral:  { icon: "bg-rose-50 border-rose-200 text-rose-600",           badge: "bg-rose-50 text-rose-700 border border-rose-200"           },
+  pink:   { icon: "bg-pink-50 border-pink-200 text-pink-600",           badge: "bg-pink-50 text-pink-700 border border-pink-200"           },
+  gray:   { icon: "bg-slate-50 border-slate-200 text-slate-600",        badge: "bg-slate-50 text-slate-600 border border-slate-200"        },
 }
 
 const ModuleAccordion = ({ module, index }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const colors = colorMap[module.color] ?? colorMap.gray
   const Icon   = iconMap[module.icon]
+  const colors = colorMap[module.color] || colorMap.gray
+  const count  = module.exercises.length
 
   return (
-    <div className={`mb-3 overflow-hidden bg-white rounded-2xl border transition-all duration-300 ${
-      isOpen ? 'border-slate-300 shadow-md' : 'border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300'
-    }`}>
-
+    <div className={`
+      mb-3 overflow-hidden bg-white rounded-2xl border transition-all duration-300
+      ${isOpen ? 'border-slate-300 shadow-md' : 'border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300'}
+    `}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-5 py-4 flex justify-between items-center hover:bg-slate-50/70 transition-colors duration-200 group"
@@ -43,45 +44,42 @@ const ModuleAccordion = ({ module, index }) => {
       >
         <div className="flex items-center gap-4">
           {/* Número de módulo */}
-          <span className="hidden sm:flex shrink-0 w-6 h-6 rounded-full bg-slate-100 border border-slate-200 items-center justify-center text-xs font-bold text-slate-400">
+          <span className="shrink-0 w-6 h-6 rounded-full bg-slate-100 text-slate-400 text-xs font-bold flex items-center justify-center">
             {index + 1}
           </span>
 
-          {/* Ícono */}
-          <div className={`shrink-0 w-11 h-11 rounded-xl border flex items-center justify-center ${colors.icon}`}>
-            {Icon && <Icon size={19} />}
+          {/* Ícono con color del módulo */}
+          <div className={`shrink-0 w-10 h-10 rounded-xl border flex items-center justify-center ${colors.icon}`}>
+            {Icon && <Icon size={18} aria-hidden="true" />}
           </div>
 
-          {/* Texto */}
           <div className="text-left">
             <h2 className="text-sm font-bold text-slate-900 leading-tight">{module.title}</h2>
-            <p className="text-xs text-slate-400 mt-0.5 leading-snug">{module.description}</p>
+            <p className="text-xs text-slate-500 mt-0.5 line-clamp-1">{module.description}</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5 shrink-0 ml-3">
-          <span className={`hidden sm:inline text-xs font-semibold px-2.5 py-1 rounded-full ${colors.badge}`}>
-            {module.exercises.length} ejercicios
+        <div className="flex items-center gap-3 shrink-0 ml-4">
+          <span className={`hidden sm:block text-[11px] font-bold px-2.5 py-1 rounded-lg ${colors.badge}`}>
+            {count} {count === 1 ? 'ejercicio' : 'ejercicios'}
           </span>
-          <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-colors duration-200 ${
-            isOpen ? 'bg-slate-200 text-slate-700' : 'bg-slate-100 text-slate-400 group-hover:bg-slate-200'
-          }`}>
-            <ChevronDown size={16} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-          </div>
+          <ChevronDown
+            size={18}
+            className={`text-slate-400 group-hover:text-slate-600 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+          />
         </div>
       </button>
 
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {isOpen && (
           <motion.div
-            key="content"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.22, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="border-t border-slate-100 px-4 pt-3 pb-4">
+            <div className="px-4 pb-4 pt-1 border-t border-slate-100">
               {module.exercises.map(ex => (
                 <ExerciseCard key={ex.id} exercise={ex} />
               ))}

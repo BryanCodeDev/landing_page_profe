@@ -2,31 +2,31 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { ArrowUp } from 'lucide-react'
 
-const ScrollToTop = () => {
+export const ScrollToTop = () => {
   const { pathname } = useLocation()
-  const [showButton, setShowButton] = useState(false)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowButton(window.scrollY > 300)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const onScroll = () => setVisible(window.scrollY > 350)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  if (!showButton) return null
 
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="fixed bottom-6 right-6 p-3 bg-blue-800 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors z-40"
       aria-label="Volver arriba"
+      className={`
+        fixed bottom-6 right-6 z-40 p-3 rounded-full
+        bg-slate-900 text-white shadow-lg
+        hover:bg-blue-600 hover:scale-110 active:scale-95
+        transition-all duration-300
+        ${visible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}
+      `}
     >
-      <ArrowUp size={20} />
+      <ArrowUp size={18} />
     </button>
   )
 }
