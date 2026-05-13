@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { Home, FileSpreadsheet, FileText, ArrowLeft } from 'lucide-react'
+import { Home, FileSpreadsheet, FileText, Monitor, ArrowLeft } from 'lucide-react'
 
 const quickLinks = [
   { to: '/excel', label: 'Ejercicios Excel', icon: FileSpreadsheet, color: 'hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-700', iconColor: 'text-emerald-500' },
   { to: '/word',  label: 'Ejercicios Word',  icon: FileText,        color: 'hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700',       iconColor: 'text-blue-500'    },
+  { to: '/windows', label: 'Guía de Windows', icon: Monitor,        color: 'hover:border-amber-300 hover:bg-amber-50 hover:text-amber-700',   iconColor: 'text-amber-500'  },
 ]
 
 const NotFound = () => (
   <>
     <Helmet>
       <title>404 - Página no encontrada | Servysol</title>
-      <meta name="description" content="Página no encontrada. Explora nuestros ejercicios de Excel y Word." />
+      <meta name="description" content="Página no encontrada. Explora nuestros ejercicios de Excel, Word y la guía de atajos de Windows." />
     </Helmet>
 
     <div className="min-h-[80vh] flex items-center justify-center bg-linear-to-b from-slate-50 to-white px-4">
@@ -39,7 +40,7 @@ const NotFound = () => (
         </p>
 
         {/* Links rápidos */}
-        <div className="grid grid-cols-2 gap-3 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
           {quickLinks.map(({ to, label, icon: Icon, color, iconColor }) => (
             <Link
               key={to}

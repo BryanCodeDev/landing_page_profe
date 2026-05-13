@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { BookOpen, FileSpreadsheet, FileText, Download, Shield } from 'lucide-react'
+import { BookOpen, FileSpreadsheet, FileText, Download, Shield, Monitor } from 'lucide-react'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -20,18 +20,19 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-slate-400 max-w-md text-sm leading-relaxed">
-              Ejercicios gratuitos de Excel y Word con descarga directa.
+              Ejercicios gratuitos de Excel, Word y Windows con descarga directa.
               Sin registro, sin redirecciones. Solo práctica real.
             </p>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-10">
             {[
               { icon: <FileSpreadsheet size={15} />, label: '28 ejercicios Excel', color: 'text-emerald-400' },
-              { icon: <FileText size={15} />,        label: '4 ejercicios Word',   color: 'text-blue-400'    },
-              { icon: <Download size={15} />,        label: 'Descarga directa',    color: 'text-slate-400'   },
-              { icon: <Shield size={15} />,          label: 'Sin registro',        color: 'text-slate-400'   },
+              { icon: <FileText size={15} />,        label: '6 ejercicios Word',    color: 'text-blue-400' },
+              { icon: <Monitor size={15} />,         label: '81 atajos Windows',     color: 'text-amber-400' },
+              { icon: <Download size={15} />,        label: 'Descarga directa',     color: 'text-slate-400' },
+              { icon: <Shield size={15} />,          label: 'Sin registro',         color: 'text-slate-400' },
             ].map((item, i) => (
               <div key={i} className="flex items-center justify-center gap-2 bg-slate-800/50 border border-slate-700/50 rounded-xl py-3 px-4">
                 <span className={item.color}>{item.icon}</span>
@@ -46,6 +47,7 @@ const Footer = () => {
               <Link to="/"      className="text-slate-400 hover:text-white transition-colors font-medium">Inicio</Link>
               <Link to="/excel" className="text-slate-400 hover:text-emerald-400 transition-colors font-medium">Ejercicios Excel</Link>
               <Link to="/word"  className="text-slate-400 hover:text-blue-400 transition-colors font-medium">Ejercicios Word</Link>
+              <Link to="/windows" className="text-slate-400 hover:text-amber-400 transition-colors font-medium">Guía Windows</Link>
             </nav>
             <p className="text-xs text-slate-600">
               © {currentYear} Servysol. Todos los derechos reservados.

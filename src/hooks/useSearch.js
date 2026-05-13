@@ -1,11 +1,17 @@
 import { useState, useMemo } from 'react';
 
+/**
+ * useSearch — Búsqueda plana sobre un arreglo de objetos.
+ * Retorna null si no hay resultados (no un arreglo vacío).
+ *
+ * @deprecated Preferir useFileSearch para búsqueda a nivel de archivo individual.
+ */
 const useSearch = (data, searchKeys = []) => {
   const [query, setQuery] = useState('');
 
   const results = useMemo(() => {
     if (!query.trim()) return null;
-    
+
     const searchTerm = query.toLowerCase();
     const filtered = [];
 
@@ -14,7 +20,7 @@ const useSearch = (data, searchKeys = []) => {
         const value = item[key];
         return value && value.toString().toLowerCase().includes(searchTerm);
       });
-      
+
       if (matches) {
         filtered.push(item);
       }

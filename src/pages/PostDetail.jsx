@@ -9,7 +9,7 @@ const PostDetail = () => {
     <>
       <Helmet>
         <title>Ejercicio {postId} - Servysol</title>
-        <meta name="description" content="Detalle del ejercicio" />
+        <meta name="description" content={`Detalle del ejercicio ${postId} de Excel o Word. Consulta el enunciado y descarga el archivo.`} />
       </Helmet>
 
       <div className="min-h-screen bg-linear-to-b from-slate-50 to-white">

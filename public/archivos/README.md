@@ -210,10 +210,31 @@ Esta carpeta contiene los archivos descargables de la plataforma.
 
 | Tema | Archivos |
 |------|----------|
+| **Formato Básico** | `formato-basico.docx` ⚠️ (no encontrado en carpeta) |
+| **Tabulaciones e Imágenes** | `tabulaciones-imagenes.docx` ⚠️ (no encontrado en carpeta) |
+| **Imágenes y SmartArt** | `imagenes-smartart.docx` ⚠️ (no encontrado en carpeta) |
 | **Tablas en Word** | `EjWorBas-Pra7.doc`, `EjWorBas-Rep7.doc`, carpeta `Tablas Word/` |
+| **Evaluación Final** | `examen-word-metamorfosis.docx` ⚠️ (no encontrado en carpeta) |
 
-## Notas importantantes
+## Distribución por temas (Windows)
+
+**Guía de atajos de teclado** — contenido generado desde `src/data/windowsContent.js`:
+
+| Tema | Atajos |
+|------|--------|
+| **Navegación y Explorador** | 14 |
+| **Gestión de Ventanas** | 15 |
+| **Atajos Generales** | 16 |
+| **Portapapeles del Sistema** | 4 |
+| **Accesibilidad** | 8 |
+| **Barra de Tareas** | 8 |
+| **Avanzados y Herramientas** | 16 |
+
+> **Nota:** Windows no tiene archivos en `public/archivos/`. Es contenido de texto puro servido desde el código fuente.
+
+## Notas importantes
 
 - Los archivos `.xlsx`, `.xls` y `.docx` deben ser subidos aquí antes del despliegue en Railway.
 - **4 archivos referenciados en `wordContent.js` NO se encontraron** en la carpeta: `formato-basico.docx`, `tabulaciones-imagenes.docx`, `imagenes-smartart.docx`, `examen-word-metamorfosis.docx`. Se debe verificar si faltan subirlos o eliminar las referencias.
 - Los archivos sueltos en la raíz de `excel/` ya están asignados a un tema según `excelContent.js`.
+- Los atajos de Windows están documentados en `src/data/windowsContent.js` y se renderizan dinámicamente.

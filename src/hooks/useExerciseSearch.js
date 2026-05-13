@@ -1,5 +1,11 @@
 import { useState, useMemo } from 'react';
 
+/**
+ * useExerciseSearch — Búsqueda agrupada por módulos/temas.
+ * Retorna módulos con sus ejercicios filtrados.
+ *
+ * @deprecated Preferir useFileSearch para búsqueda a nivel de archivo individual.
+ */
 const useExerciseSearch = (modules, searchKeys = []) => {
   const [query, setQuery] = useState('');
 
