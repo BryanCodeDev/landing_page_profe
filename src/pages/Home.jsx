@@ -64,7 +64,7 @@ const Home = () => {
             {[
               { icon: <Download size={13} />, text: 'Descarga directa .xlsx y .docx' },
               { icon: <CheckCircle size={13} />, text: 'Sin registro requerido' },
-              { icon: <ArrowRight size={13} />, text: '42 recursos disponibles' },
+              { icon: <ArrowRight size={13} />, text: '115 recursos disponibles' },
             ].map((item, i) => (
               <span key={i} className="flex items-center gap-1.5 text-xs text-slate-300 bg-slate-800/60 border border-slate-700/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
                 <span className="text-blue-400">{item.icon}</span>
@@ -120,7 +120,7 @@ const Home = () => {
                   <FileText size={26} />
                 </div>
                 <span className="text-[11px] font-semibold bg-blue-900/50 text-blue-200 px-2.5 py-1 rounded-full border border-blue-500/30">
-                  4 módulos
+                  3 módulos
                 </span>
               </div>
               <h2 className="text-xl font-bold mb-1">Word</h2>
@@ -134,7 +134,7 @@ const Home = () => {
               </ul>
               <div className="flex items-center justify-between">
                 <span className="text-sm font-semibold text-blue-100">
-                  4 ejercicios
+                  6 ejercicios
                 </span>
                 <span className="flex items-center gap-1 text-xs text-blue-200 group-hover:gap-2 transition-all">
                   Ver módulos <ArrowRight size={13} />
@@ -153,7 +153,7 @@ const Home = () => {
                   <Monitor size={26} />
                 </div>
                 <span className="text-[11px] font-semibold bg-amber-900/50 text-amber-200 px-2.5 py-1 rounded-full border border-amber-500/30">
-                  8 categorías
+                  7 categorías
                 </span>
               </div>
               <h2 className="text-xl font-bold mb-1">Windows</h2>
@@ -182,9 +182,9 @@ const Home = () => {
             <div className="flex flex-wrap items-center gap-3 bg-slate-800/50 backdrop-blur-sm border border-slate-700/60 text-slate-400 text-xs px-6 py-3 rounded-full">
               <span className="flex items-center gap-1.5"><BarChart3 size={12} className="text-emerald-400" /> 28 archivos Excel</span>
               <span className="text-slate-600">·</span>
-              <span className="flex items-center gap-1.5"><FileText size={12} className="text-blue-400" /> 4 archivos Word</span>
+              <span className="flex items-center gap-1.5"><FileText size={12} className="text-blue-400" /> 6 ejercicios Word</span>
               <span className="text-slate-600">·</span>
-              <span className="flex items-center gap-1.5"><Monitor size={12} className="text-amber-400" /> 50+ atajos Windows</span>
+              <span className="flex items-center gap-1.5"><Monitor size={12} className="text-amber-400" /> 81 atajos Windows</span>
               <span className="text-slate-600">·</span>
               <span className="flex items-center gap-1.5"><Download size={12} className="text-slate-400" /> Descarga directa</span>
               <span className="text-slate-600">·</span>

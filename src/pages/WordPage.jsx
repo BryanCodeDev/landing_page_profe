@@ -26,7 +26,7 @@ const WordPage = () => {
     <>
       <Helmet>
         <title>Ejercicios de Word para Descargar | Formato, Imágenes, SmartArt - Servysol</title>
-        <meta name="description" content="4 ejercicios prácticos de Microsoft Word en .docx: formato básico, tabulaciones, SmartArt e imágenes. Descarga y practica en tu computador." />
+        <meta name="description" content="6 ejercicios prácticos de Microsoft Word en .docx y .doc: formato básico, tabulaciones, SmartArt, tablas e índices. Descarga y practica en tu computador." />
       </Helmet>
 
       <div className="min-h-screen bg-linear-to-b from-slate-50 via-white to-slate-50">
